@@ -1,4 +1,5 @@
 --refrence: https://8weeksqlchallenge.com/case-study-2/
+--All questions and database are availble in above link
 --linkedin hastag: #8WeekSQLChallenge
 
 
