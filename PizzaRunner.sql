@@ -418,3 +418,132 @@ select
 from customer_orders_refined as o
 left join pizza_names as n
 on n.pizza_id = o.pizza_id;
+
+--D.1
+--Make price column using CTE and sum it all
+
+with cte_price as (
+					select
+						*,
+						iif(pizza_id=1,12,10) as price
+					from #customer_runner
+					)
+select 
+	sum(price) as total_sales
+from cte_price
+where cancellation is null;
+
+
+--D.2
+--Set condition for extras prices in CTE, then sum up all sales
+
+
+with cte_price_extras as (
+					select
+						*,
+						iif(pizza_id=1,12,10) as price,
+						case
+							when extras is null then 0
+							when len(extras)>1 and CHARINDEX('4',extras) =0 then 2
+							when len(extras)>1 and CHARINDEX('4',extras) <>0 then 3
+							when extras in ('1','2','3','5','6','7','8','9','10','11','12') then 1
+							when extras = '4' then 2
+							else null
+						end as extras_price,
+						iif(pizza_id=1,12,10) + case
+							when extras is null then 0
+							when len(extras)>1 and CHARINDEX('4',extras) =0 then 2
+							when len(extras)>1 and CHARINDEX('4',extras) <>0 then 3
+							when extras in ('1','2','3','5','6','7','8','9','10','11','12') then 1
+							when extras = '4' then 2
+							else null
+						end as total_price
+					from #customer_runner
+					)
+select 
+	sum(total_price) as total_sales
+from cte_price_extras
+where cancellation is null;
+
+--D.3
+--Make new table with two columns of order id and score
+
+drop table if exists order_score
+create table order_score (
+							order_id int,
+							score int
+							)
+insert into order_score
+values
+		(1,2),
+		(2,4),
+		(3,3),
+		(4,1),
+		(5,3),
+		(7,4),
+		(8,5),
+		(10,3)
+						
+--D.4
+--Join new table with order_score
+
+select
+	customer_id,
+	c.order_id,
+	runner_id,
+	score,
+	order_time,
+	pickup_time,
+	DATEDIFF(MINUTE,order_time,pickup_time) as order_pickup_diff_minute,
+	duration_min,
+	count(c.order_id) over (partition by c.order_id) as total_number_pizza,
+	distance_km/duration_min*60 as speed_km_per_hour
+from #customer_runner as c
+left join order_score as s
+on c.order_id = s.order_id
+where cancellation is null;
+
+--D.5
+--Make travel expense column per each order 
+--Subtract travel expense from price to reach left_over
+--Sum left_over using CTE
+
+with cte_price_distance as (
+					select
+						*,
+						iif(pizza_id=1,12,10) as price,
+						distance_km*0.3*iif(ROW_NUMBER() over (partition by order_id order by order_id)=1,1,0) as travel_expense,
+						iif(pizza_id=1,12,10)-distance_km*0.3*iif(ROW_NUMBER() over (partition by order_id order by order_id)=1,1,0) as left_over						
+					from #customer_runner
+					)
+select 
+	sum(left_over) as net_income
+from cte_price_distance
+where cancellation is null;
+
+--E
+--Two tables of pizza_names and pizza_recipes should be updated
+
+DROP TABLE IF EXISTS pizza_names;
+CREATE TABLE pizza_names (
+  "pizza_id" INTEGER,
+  "pizza_name" TEXT
+);
+INSERT INTO pizza_names
+  ("pizza_id", "pizza_name")
+VALUES
+  (1, 'Meatlovers'),
+  (2, 'Vegetarian'),
+  (3, 'Supreme');
+
+DROP TABLE IF EXISTS pizza_recipes;
+CREATE TABLE pizza_recipes (
+  "pizza_id" INTEGER,
+  "toppings" TEXT
+);
+INSERT INTO pizza_recipes
+  ("pizza_id", "toppings")
+VALUES
+  (1, '1, 2, 3, 4, 5, 6, 8, 10'),
+  (2, '4, 6, 7, 9, 11, 12'),
+  (3, '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12');
