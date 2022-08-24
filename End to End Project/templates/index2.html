@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Amsterdam Rent Prediction</title>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> -->
+  
+<style>
+  h1 {color: rgb(9, 20, 119); text-align: left;}
+
+  div {text-align: left;   margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;}
+    
+  /* form {text-align: center;}*/
+  .p { 
+  font-family: Arial, Helvetica, sans-serif;
+        }
+  h2.fixed {
+  position: fixed;
+  bottom: 400px;
+  right: 500px;
+  
+ }
+
+
+ .map{  
+  position: fixed;
+  bottom: 190px;
+  right: 190px;
+  width: 600px;
+ }       
+</style>
+
+</head>
+
+<body class="p" style="background-color:rgb(255, 255, 255);" >
+ <div class="p" style="color:rgb(135, 131, 130);" >
+	<h1 class="p" >Rental Price Prediction in Amsterdam</h1>
+
+   <!-- Main Input For Receiving Query to our ML -->
+   <h3 class="p" >Select house type:</h3>
+    <form action="{{ url_for('predict') }}"method="post">
+        <input type="radio" id="House" name="type" value="House" required="required" >
+        <label for="House">House</label><br>
+        <input type="radio" id="Apartment" name="type" value="Apartment" >
+        <label for="Apartment">Apartment</label><br>
+        <input type="radio" id="Studio" name="type" value="Studio" >
+        <label for="Studio">Studio</label><br>
+    <h3 class="p" >Select interior:</h3>
+        <input type="radio" id="Full Fernished" name="interior" value="Upholstered or furnished" required="required">
+        <label for="Full Fernished">Full Fernished</label><br>
+        <input type="radio" id="Furnished" name="interior" value="Furnished">
+        <label for="Furnished">Furnished</label><br>
+        <input type="radio" id="Upholstered" name="interior" value="Upholstered">
+        <label for="Upholstered">Upholstered</label><br>
+        <input type="radio" id="Unfernished" name="interior" value="Unfernished">
+        <label for="Unfernished">Unfernished</label><br><br>
+        <label for="neighborhood">Choose a neighborhood:</label>
+        <select name="neighborhood" id="neighborhood">
+            <option value="Zuid">Zuid</option>
+            <option value="West">West</option>
+            <option value="Binnenstad en Oostelijk Havengebied">Centrum</option>
+            <option value="Nieuw-West">Nieuw-West</option>
+            <option value="Oost">Oost</option>
+            <option value="Noord oost">Noord oost</option>
+            <option value="Noord west">Noord west</option>
+            <option value="Zuidoost">Zuidoost</option>
+            <option value="Buitenveldert">Zuid-Buitenveldert</option>
+            <option value="IJburg">Oost-IJburg</option>
+        </select><br><br>
+      <label for="room">Enter number of rooms (between 1 to 5) :</label>
+      <input type="number" name="room" placeholder="room" required="required" min="1" max="5" /><br><br>
+      <label for="room">Enter area in square meter (between 20 to 200) :</label>
+      <input type="number" name="area_square_meter" placeholder="area_square_meter" required="required" min="20" max="200" /><br><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large"  style="font-size : 20px; width: 25%; height: 50px" >Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <h2 style="color:rgb(227, 61, 19);" > {{ prediction_text }}</h2>
+    <div id="map">
+      <img src="https://expatinfoholland.nl/wp-content/uploads/2019/05/Amsterdam-district-map.png" alt="Amsterdam map" class="map">
+    </div>
+
+ </div>
+
+
+</body>
+</html>
