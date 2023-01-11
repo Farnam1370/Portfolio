@@ -1,0 +1,65 @@
+aggregate_sector,aggregate_sector_name,sector_code,sector_name
+A,"Agriculture, forestry and fishing",A01,"Crop and animal production, hunting and related service activities"
+A,"Agriculture, forestry and fishing",A02,Forestry and logging
+A,"Agriculture, forestry and fishing",A03,Fishing and aquaculture
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",B,Mining and quarrying
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C10-C12,"Manufacture of food products, beverages and tobacco products"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C13-C15,"Manufacture of textiles, wearing apparel and leather products"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C17,Manufacture of paper and paper products
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C18,Printing and reproduction of recorded media
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C19,Manufacture of coke and refined petroleum products 
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C20,Manufacture of chemicals and chemical products 
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C22,Manufacture of rubber and plastic products
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C23,Manufacture of other non-metallic mineral products
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C24,Manufacture of basic metals
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C25,"Manufacture of fabricated metal products, except machinery and equipment"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C26,"Manufacture of computer, electronic and optical products"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C27,Manufacture of electrical equipment
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C28,Manufacture of machinery and equipment n.e.c.
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C29,"Manufacture of motor vehicles, trailers and semi-trailers"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C30,Manufacture of other transport equipment
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C31_C32,Manufacture of furniture; other manufacturing
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",C33,Repair and installation of machinery and equipment
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",D35,"Electricity, gas, steam and air conditioning supply"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",E36,"Water collection, treatment and supply"
+"B, C, D and E","Manufacturing, mining and quarrying and other industrial activities",E37-E39,"Sewerage; waste collection, treatment and disposal activities; materials recovery; remediation activities and other waste management services "
+F,Construction,F,Construction
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",G45,Wholesale and retail trade and repair of motor vehicles and motorcycles
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",G46,"Wholesale trade, except of motor vehicles and motorcycles"
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",G47,"Retail trade, except of motor vehicles and motorcycles"
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",H49,Land transport and transport via pipelines
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",H50,Water transport
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",H51,Air transport
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",H52,Warehousing and support activities for transportation
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",H53,Postal and courier activities
+"G, H and I","Wholesale and retail trade, transportation and storage, accommodation and food service activities",I,Accommodation and food service activities
+J,Information and communication,J58,Publishing activities
+J,Information and communication,J59_J60,"Motion picture, video and television programme production, sound recording and music publishing activities; programming and broadcasting activities"
+J,Information and communication,J61,Telecommunications
+J,Information and communication,J62_J63,"Computer programming, consultancy and related activities; information service activities"
+K,Financial and insurance activities,K64,"Financial service activities, except insurance and pension funding"
+K,Financial and insurance activities,K65,"Insurance, reinsurance and pension funding, except compulsory social security"
+K,Financial and insurance activities,K66,Activities auxiliary to financial services and insurance activities
+L,Real estate activities,L68,Real estate activities
+M and N,"Professional, scientific, technical, administrative and support service activities",M69_M70,Legal and accounting activities; activities of head offices; management consultancy activities
+M and N,"Professional, scientific, technical, administrative and support service activities",M71,Architectural and engineering activities; technical testing and analysis
+M and N,"Professional, scientific, technical, administrative and support service activities",M72,Scientific research and development
+M and N,"Professional, scientific, technical, administrative and support service activities",M73,Advertising and market research
+M and N,"Professional, scientific, technical, administrative and support service activities",M74_M75,"Other professional, scientific and technical activities; veterinary activities"
+M and N,"Professional, scientific, technical, administrative and support service activities",N,Administrative and support service activities
+"O, P, and Q","Public administration and defence, education, human health and social work activities",O84,Public administration and defence; compulsory social security
+"O, P, and Q","Public administration and defence, education, human health and social work activities",P85,Education
+"O, P, and Q","Public administration and defence, education, human health and social work activities",Q,Human health and social work activities
+"R, S, T and U",Other service activities,R_S,Other service activities
+"R, S, T and U",Other service activities,T,Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use
+"R, S, T and U",Other service activities,U,Activities of extraterritorial organizations and bodies
+II_fob,Total intermediate consumption,II_fob,Total intermediate consumption
+TXSP,taxes less subsidies on products,TXSP,taxes less subsidies on products
+EXP_adj,Cif/ fob adjustments on exports,EXP_adj,Cif/ fob adjustments on exports
+PURR,Direct purchases abroad by residents,PURR,Direct purchases abroad by residents
+PURNR,Purchases on the domestic territory by non-residents ,PURNR,Purchases on the domestic territory by non-residents 
+VA,Value added at basic prices,VA,Value added at basic prices
+IntTTM,International Transport Margins,IntTTM,International Transport Margins
+GO,Output at basic prices,GO,Output at basic prices
